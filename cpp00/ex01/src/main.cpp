@@ -39,7 +39,7 @@ int main()
         if (!input.compare("EXIT"))
         {
             system("clear");
-            std::cout << std::endl << "\033[33mThank you for using PhoneBook! See you soon.";
+            std::cout << "\033[33mThank you for using PhoneBook! See you soon." << std::endl;
             return(0);
         }
         else if (!input.compare("SEARCH"))
@@ -50,15 +50,13 @@ int main()
         else if (!input.compare("ADD"))
             {
                 system("clear");
-                std::cout << pb.add_contacts();
+                std::cout << pb.add_contacts() << std::endl;;
             }
         else
             {
                 system("clear");
-                std::cout << "\033[31mPlease, select ADD, SEARCH or EXIT. Capital letters only. Try again.\033[0m";
+                std::cout << "\033[31mPlease, select ADD, SEARCH or EXIT. Capital letters only. Try again.\033[0m" << std::endl;
             } 
-            std::cout << std::endl;        
     }
-    system("leaks phonebook");
     return(0);
 }

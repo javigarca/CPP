@@ -27,7 +27,7 @@ std::string format_view_str(std::string str, size_t len)
 }
 
 void pause() {
-    std::cout << "\033[5m\033[36mPress Enter to continue...\033[0m";
+    std::cout << "\033[5m\033[36mPress Enter to continue...\033[0m" << std::endl;;
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::string s;
     std::getline(std::cin, s);
@@ -70,7 +70,7 @@ std::string PhoneBook::add_contacts(void)
     for (size_t i = 0; i < 5; i++)
     {
         if (contact_info[i].empty())
-            return("\033[31mAt least one field has been left empty. Try again.\033[0m");
+            return("\033[31mAt least one field has been left empty. Try again.\033[0m");;
     }
     if (!add_contact(_next_index, contact_info))
     {
