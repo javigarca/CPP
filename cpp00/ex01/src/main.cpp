@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "resources.hpp"
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
 
@@ -60,5 +59,6 @@ int main()
             } 
             std::cout << std::endl;        
     }
+    system("leaks phonebook");
     return(0);
 }

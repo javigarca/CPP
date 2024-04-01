@@ -13,7 +13,12 @@
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
 
-# include "resources.hpp"
+# include <iostream>
+# include <string>
+# include <cctype>
+# include <cstdlib>
+# include <iomanip>
+# include <limits>
 
 class Contact
 {

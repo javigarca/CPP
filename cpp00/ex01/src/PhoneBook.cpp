@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include "resources.hpp"
 #include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook(void) : _book_size(0), _next_index(0)
@@ -106,7 +104,7 @@ void PhoneBook::print_contacts(void)
     std::cout << "|---------------------------------------------------|" << std::endl;
     for (size_t i = 0; i < _book_size; i++)
     {
-            std::cout << "| " << std::setw(10) << "\033[31m" << i + 1 << "\033[0m";
+            std::cout << "| " << "\033[31m" << std::setw(10) << i + 1 << "\033[0m";
             std::cout << " | " << std::setw(10) << format_view_str(_contacts[i].getFirstName(), 10);
             std::cout << " | " << std::setw(10) << format_view_str(_contacts[i].getLastName(), 10);
             std::cout << " | " << std::setw(10) << format_view_str(_contacts[i].getNickname(), 10);

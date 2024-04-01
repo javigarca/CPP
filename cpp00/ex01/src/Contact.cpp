@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include "resources.hpp"
 #include "Contact.hpp"
 
 Contact::Contact()

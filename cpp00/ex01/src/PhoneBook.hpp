@@ -13,7 +13,12 @@
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
 
-# include "resources.hpp"
+# include <iostream>
+# include <string>
+# include <cctype>
+# include <cstdlib>
+# include <iomanip>
+# include <limits>
 # include "Contact.hpp"
 # define MAX_CONTACTS 8
 
