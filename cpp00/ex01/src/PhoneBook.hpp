@@ -15,7 +15,7 @@
 
 # include "resources.hpp"
 # include "Contact.hpp"
-# define MAX_CONTACTS 3
+# define MAX_CONTACTS 8
 
 class PhoneBook
 {

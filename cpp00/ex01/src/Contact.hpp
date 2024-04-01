@@ -18,7 +18,7 @@
 class Contact
 {
     public:
-            Contact();
+            Contact(void);
             Contact(std::string f, std::string l, std::string n, std::string p, std::string d);
             Contact(std::string info[5]);
             ~Contact(void);

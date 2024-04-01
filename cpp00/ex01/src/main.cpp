@@ -21,9 +21,9 @@ void menu(void)
     std::cout << " †††††††††††††††††††††††††††††††" << std::endl;
     std::cout << std::endl << " Menu options: " << std::endl;
     std::cout << " *************" << std::endl;
-    std::cout << " <ADD> : Add a new contact. (limited to " << MAX_CONTACTS << ")" << std::endl;
-    std::cout << " <SEARCH> : Search for and print a contact info." << std::endl;
-    std::cout << " <EXIT> : Terminate this program." << std::endl;
+    std::cout << "\033[35m    <ADD> : " << "\033[0mAdd a new contact. (limited to " << MAX_CONTACTS << ")" << std::endl;
+    std::cout << "\033[35m <SEARCH> : " << "\033[0mSearch for and print a contact info." << std::endl;
+    std::cout << "\033[35m   <EXIT> : " << "\033[0mTerminate this program." << std::endl;
     std::cout << " Enter option >>> ";
 }
 
@@ -53,6 +53,11 @@ int main()
                 system("clear");
                 std::cout << pb.add_contacts();
             }
+        else
+            {
+                system("clear");
+                std::cout << "\033[31mPlease, select ADD, SEARCH or EXIT. Capital letters only. Try again.\033[0m";
+            } 
             std::cout << std::endl;        
     }
     return(0);

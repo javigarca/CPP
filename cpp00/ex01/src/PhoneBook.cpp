@@ -55,24 +55,24 @@ std::string PhoneBook::add_contacts(void)
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
     std::cout << std::endl;
     std::cout << "|----------------* \033[33mNEW CONTACT\033[0m*-----------------|" << std::endl;
-    std::cout << "|------------------------------------------------|" << std::endl;
+    std::cout << "|-----------------------------------------------|" << std::endl;
     std::cout << std::endl;
-    std::cout << std::endl << " * First Name   >> ";
+    std::cout << std::endl << " *   First Name >> ";
     std::getline(std::cin, contact_info[0]);
-    std::cout << std::endl << " * Last Name    >> ";
+    std::cout << std::endl << " *    Last Name >> ";
     std::getline(std::cin, contact_info[1]);
-    std::cout << std::endl << " * Nickname     >> "; 
+    std::cout << std::endl << " *     Nickname >> "; 
     std::getline(std::cin, contact_info[2]);
     std::cout << std::endl << " * Phone Number >> ";
     std::getline(std::cin, contact_info[3]);
-    std::cout << std::endl << " * Dark Secret  >> ";
+    std::cout << std::endl << " *  Dark Secret >> ";
     std::getline(std::cin, contact_info[4]);
     std::cout << std::endl;
     system("clear");
     for (size_t i = 0; i < 5; i++)
     {
         if (contact_info[i].empty())
-            return("\033[31mSome field has been left empty. Try again\033[0m");
+            return("\033[31mAt least one field has been left empty. Try again.\033[0m");
     }
     if (!add_contact(_next_index, contact_info))
     {
@@ -93,29 +93,26 @@ void PhoneBook::print_contacts(void)
 
     if (!_book_size)
     {
-        std::cout << "\033[31mNo contacts to display. Add at least one contact.\033[0m" << std::endl;
+        std::cout << "\033[31mNo contacts to display. Add at least one contact.\033[0m";
         return;
     } 
     std::cout << std::endl;
-    std::cout << "+----------------------------------------------------+" << std::endl;
-    std::cout << "|----------------------------------------------------|" << std::endl;
-    std::cout << "|----------------* \033[33mCONTACT SELECTION \033[0m*---------------|" << std::endl;
-    std::cout << "|----------------------------------------------------|" << std::endl;
-    std::cout << "+----------------------------------------------------+" << std::endl;
+    std::cout << "+---------------------------------------------------+" << std::endl;
+    std::cout << "|---------------* \033[33mCONTACT SELECTION \033[0m*---------------|" << std::endl;
+    std::cout << "+---------------------------------------------------+" << std::endl;
     std::cout << std::right; // Set alignment to right
     std::cout << "| " << std::setw(10) << "Index" << " | " << std::setw(10) << "Name" << " | " << std::setw(10) 
               << "Last Name" << " | " << std::setw(10) << "Nickname" << " |" << std::endl;
-    std::cout << "|----------------------------------------------------|" << std::endl;
+    std::cout << "|---------------------------------------------------|" << std::endl;
     for (size_t i = 0; i < _book_size; i++)
     {
-            std::cout << "| " << std::setw(10) << i + 1;
+            std::cout << "| " << std::setw(10) << "\033[31m" << i + 1 << "\033[0m";
             std::cout << " | " << std::setw(10) << format_view_str(_contacts[i].getFirstName(), 10);
             std::cout << " | " << std::setw(10) << format_view_str(_contacts[i].getLastName(), 10);
             std::cout << " | " << std::setw(10) << format_view_str(_contacts[i].getNickname(), 10);
 	        std::cout << " |"<<std::endl;
     }
-    std::cout << "|----------------------------------------------------|" << std::endl;
-    std::cout << "+----------------------------------------------------+" << std::endl;
+    std::cout << "+---------------------------------------------------+" << std::endl;
     std::cout << std::endl;
     std::cout << "Select contact by index number >> ";
     std::cin >> select;
@@ -125,7 +122,7 @@ void PhoneBook::print_contacts(void)
     else
     {
         system("clear");
-        std::cout << "\033[31mWrong number. It's not rocket science...\033[0m" << std::endl;
+        std::cout << "\033[31mWrong number. It's not rocket science...\033[0m";
     }
 }
 
