@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javi <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/02 00:10:03 by javi              #+#    #+#             */
-/*   Updated: 2024/04/02 00:10:18 by javi             ###   ########.fr       */
+/*   Created: 2024/04/02 00:09:06 by javi              #+#    #+#             */
+/*   Updated: 2024/04/02 00:09:11 by javi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
+
 #include <iostream>
 #include <string>
-#include "Zombie.h"
 
-int main()
+class Zombie 
 {
-    Zombie* heapzombie;
-    
-    heapzombie = newZombie("heap");
-    heapzombie->anounce();
-    delete heapzombie;
+    public:
+            Zombie();
+            Zombie(std::string name);
+            ~Zombie();
 
-    randomChump();
-    return(0);
-}
+            void anounce(void) const;
+            void setName(std::string name);
+    private:
+            std::string _name;
+};
+
+#endif

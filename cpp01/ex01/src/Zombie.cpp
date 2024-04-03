@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javi <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/02 00:10:03 by javi              #+#    #+#             */
-/*   Updated: 2024/04/02 00:10:18 by javi             ###   ########.fr       */
+/*   Created: 2024/04/02 00:08:53 by javi              #+#    #+#             */
+/*   Updated: 2024/04/02 00:08:56 by javi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
-#include "Zombie.h"
+#include "Zombie.hpp"
 
-int main()
+Zombie::Zombie() : _name("default")
+{}
+
+Zombie::Zombie(std::string name) : _name(name)
+{}
+
+Zombie::~Zombie()
 {
-    Zombie* heapzombie;
-    
-    heapzombie = newZombie("heap");
-    heapzombie->anounce();
-    delete heapzombie;
+    std::cout << _name << " the Zombie is no longer livingdead" << std::endl;
+}
 
-    randomChump();
-    return(0);
+void Zombie::anounce() const
+{
+    std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+}
+
+void Zombie::setName(std::string name)
+{
+    this->_name = name;
 }

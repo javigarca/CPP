@@ -16,12 +16,12 @@
 
 int main()
 {
-    Zombie* heapzombie;
+    int z = 10;
+    Zombie* zombiehorde;
     
-    heapzombie = newZombie("heap");
-    heapzombie->anounce();
-    delete heapzombie;
-
-    randomChump();
+    zombiehorde = zombieHorde(z, "Johrde");
+    for (int i = 0; i < z; i++)
+           zombiehorde[i].anounce();
+    delete [] zombiehorde;
     return(0);
 }

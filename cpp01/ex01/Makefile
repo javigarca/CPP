@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-TARGET = phonebook
+TARGET = moarbrain
 
 CXX = g++
 CXXFLAGS = -std=c++98 -Wall -Wextra -Werror -pedantic
@@ -40,4 +40,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re phonebook
+.PHONY: all clean fclean re moarbrain

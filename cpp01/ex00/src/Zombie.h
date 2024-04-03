@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javi <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/02 00:10:03 by javi              #+#    #+#             */
-/*   Updated: 2024/04/02 00:10:18 by javi             ###   ########.fr       */
+/*   Created: 2024/04/02 00:09:06 by javi              #+#    #+#             */
+/*   Updated: 2024/04/02 00:09:11 by javi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
-#include "Zombie.h"
+#ifndef ZOMBIE_H
+# define ZOMBIE_H
+#include "Zombie.hpp"
 
-int main()
-{
-    Zombie* heapzombie;
-    
-    heapzombie = newZombie("heap");
-    heapzombie->anounce();
-    delete heapzombie;
+Zombie* newZombie(std::string name);
+void randomChump();
 
-    randomChump();
-    return(0);
-}
+#endif
