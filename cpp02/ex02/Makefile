@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-TARGET = harlFilter
+TARGET = fixed3
 
 CXX = c++
 CXXFLAGS = -std=c++98 -Wall -Wextra -Werror -pedantic
@@ -40,4 +40,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re harlFilter
+.PHONY: all clean fclean re fixed3
