@@ -26,4 +26,23 @@ std::cout << a++ << std::endl;
 std::cout << a << std::endl;
 std::cout << b << std::endl;
 std::cout << Fixed::max( a, b ) << std::endl;
+
+std::cout << "\nMore\n";
+std::cout << "-----------------\n";
+Fixed c = a;
+std::cout << Fixed::min(c, b) << std::endl; // 0.0078125
+std::cout << b / Fixed(2) << std::endl; // 5.05078
+std::cout << b / Fixed() << std::endl; // 5.05078
+Fixed z =( b / Fixed(2));
+std::cout << b + Fixed(-3.14f) << std::endl; // 6.96094
+std::cout << b - Fixed(18) << std::endl; // -7.89844
+std::cout << z * Fixed(2) << std::endl; 
+std::cout << (c != a) << std::endl; // 0
+std::cout << (c == a) << std::endl; // 1
+std::cout << z << std::endl;
+std::cout << --z << std::endl;
+std::cout << z << std::endl;
+std::cout << z-- << std::endl;
+std::cout << z << std::endl;
+return 0;
 }

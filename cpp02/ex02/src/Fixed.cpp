@@ -15,36 +15,36 @@
 //******** Constructors and destructor **********
 Fixed::Fixed(void): _number_value(0)
 {
-    std::cout << "Default constructor called" << std::endl;
+  //  std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed& original)
 {
-    std::cout << "Copy constructor called" << std::endl;
+   // std::cout << "Copy constructor called" << std::endl;
     *this = original;
 }
 
 Fixed::Fixed(const int from_integer)
 {
-    std::cout << "Int constructor called" << std::endl;
+   // std::cout << "Int constructor called" << std::endl;
     this->_number_value = from_integer << this->_fractional_bits;
 }
 
 Fixed::Fixed(const float from_float)
 {
-    std::cout << "Float constructor called" << std::endl;
+   // std::cout << "Float constructor called" << std::endl;
     this->_number_value = (int)(roundf(from_float * (1 << this->_fractional_bits)));
 }
 
 Fixed::~Fixed()
 {
-    std::cout << "Destructor called" << std::endl;
+   // std::cout << "Destructor called" << std::endl;
 }
 
 //******** Asignation Overload **********
 Fixed& Fixed::operator =(const Fixed& original)
 {
-    std::cout << "Copy assaigment operator called" << std::endl;
+   // std::cout << "Copy assaigment operator called" << std::endl;
     if (this != &original)
         this->setRawBits(original.getRawBits());
     return *this;
@@ -134,7 +134,10 @@ Fixed Fixed::operator*(const Fixed& otherfix) const
 Fixed Fixed::operator/(const Fixed& otherfix) const
 {
     if (otherfix.getRawBits() == 0)
-        std::cout << "Error. Division by Zero." << std::endl;
+    {
+        std::cout << "Error, division by zero, your result will be zero." << std::endl;
+        return 0;
+    }
     return (Fixed(this->toFloat() / otherfix.toFloat()));
 }
 
