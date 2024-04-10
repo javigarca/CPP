@@ -53,7 +53,7 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap& other)
         ClapTrap::operator=(other);
         this->_name = other._name;
     }
-    std::cout << "<<DiamondTrap Copy assigment operator called>> " << this->getname() << " recarved successfully." << std::endl;
+    std::cout << "<<DiamondTrap Copy assignment operator called>> " << this->getname() << " recarved successfully." << std::endl;
     return *this;
 }
 void DiamondTrap::attack(const std::string& target)

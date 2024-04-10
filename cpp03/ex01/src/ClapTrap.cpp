@@ -47,7 +47,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
         this->setenergyp(other.getenergyp());
         this->setattack(other.getattack());
     }
-    std::cout << "<<Copy assigment operator called>> Another instance gets " << this->getname() << " re-assignated." << std::endl;
+    std::cout << "<<Copy assignment operator called>> Another instance gets " << this->getname() << " re-assignated." << std::endl;
     return *this;
 }
 
