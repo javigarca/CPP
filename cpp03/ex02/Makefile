@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-TARGET = scavtrap
+TARGET = fragtrap
 
 CXX = c++
 CXXFLAGS = -std=c++98 -Wall -Wextra -Werror -pedantic
@@ -48,4 +48,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re scavtrap
+.PHONY: all clean fclean re fragtrap

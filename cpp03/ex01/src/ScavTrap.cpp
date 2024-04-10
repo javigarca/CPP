@@ -12,12 +12,32 @@
 
 #include "ScavTrap.hpp"
 
+ScavTrap::ScavTrap() : ClapTrap()
+{
+    std::cout << "<<ScavTrap Default constructor called>> Welcome "<< this->getname() << "." << std::endl;
+}
+
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
     this->_hit_points = 100;
     this->_energy_points = 50;
     this->_attack_damage = 20;
     std::cout << "<<ScavTrap constructor called>> "<< this->getname() << " is created." << std::endl;
+}
+
+ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other)
+{
+    std::cout << "<<ScavTrap copy constructor called>> Say Hello to "<< this->getname() << std::endl;
+}
+
+ScavTrap& ScavTrap::operator=(const ScavTrap& other)
+{
+if (this != &other)
+    {
+        ClapTrap::operator=(other);
+    }
+     std::cout << "<<ScavTrap Copy assigment operator called>> " << this->getname() << " re-assignated succesfully." << std::endl;
+    return *this;
 }
 
 ScavTrap::~ScavTrap()

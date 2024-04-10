@@ -15,11 +15,12 @@
 
 int main(void)
 {
+    /*
     std::cout << std::endl;
     std::cout << "********************" << std::endl;
     std::cout << "**** ClapTraps *****" << std::endl;
     std::cout << "********************" << std::endl;
-     ClapTrap Clappy("Clappy");
+    ClapTrap Clappy("Clappy");
     ClapTrap Clappycpy(Clappy);
     ClapTrap Empty("");
     ClapTrap Default;
@@ -43,11 +44,17 @@ int main(void)
     Default.attack("");
     Empty.attack("");
     Empty.setenergyp(0);
-    Empty.beRepaired(2);
+    Empty.beRepaired(2); */
     std::cout << std::endl;
     std::cout << "********************" << std::endl;
     std::cout << "**** ScavTraps *****" << std::endl;
     std::cout << "********************" << std::endl;
+    ScavTrap Clappy("Clappy");
+    ScavTrap Clappycpy(Clappy);
+    ScavTrap Empty("");
+    ScavTrap Default;
+    ScavTrap Copycat;
+    Copycat = Clappy;
     ScavTrap st("ST-1");
     st.attack("an enemy");
     st.attack("");
