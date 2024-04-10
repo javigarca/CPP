@@ -37,7 +37,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 {
     if (this != &other)
         ClapTrap::operator=(other);
-    std::cout << "<<ScavTrap Copy assigment operator called>> " << this->getname() << " re-assignated succesfully." << std::endl;
+    std::cout << "<<ScavTrap Copy assigment operator called>> " << this->getname() << " re-assignated successfully." << std::endl;
     return *this;
 }
 
