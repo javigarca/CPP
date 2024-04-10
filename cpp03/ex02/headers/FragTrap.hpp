@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #ifndef FRAGTRAP_HPP
 # define FRAGTRAP_HPP
 
@@ -21,10 +20,14 @@
 class FragTrap : public ClapTrap
 {
     public:
-    FragTrap(std::string name);
-    ~FragTrap();
+        FragTrap();
+        FragTrap(std::string name);
+        FragTrap(const FragTrap& other);
+        ~FragTrap();
 
-    void highFiveGuys(void);
+        FragTrap& operator=(const FragTrap& other);
+
+        void highFiveGuys(void);
 };
 
 #endif

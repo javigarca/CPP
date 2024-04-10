@@ -12,6 +12,7 @@
 
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main(void)
 {
@@ -44,7 +45,8 @@ int main(void)
     Default.attack("");
     Empty.attack("");
     Empty.setenergyp(0);
-    Empty.beRepaired(2); */
+    Empty.beRepaired(2);
+    
     std::cout << std::endl;
     std::cout << "********************" << std::endl;
     std::cout << "**** ScavTraps *****" << std::endl;
@@ -70,6 +72,31 @@ int main(void)
     st.takeDamage(4);
     st.beRepaired(3);
     st.guardGate();
-
+*/
+    std::cout << std::endl;
+    std::cout << "********************" << std::endl;
+    std::cout << "**** FragTraps *****" << std::endl;
+    std::cout << "********************" << std::endl;
+    FragTrap Clappy("Clappy");
+    FragTrap Clappycpy(Clappy);
+    FragTrap Empty("");
+    FragTrap Default;
+    FragTrap Copycat;
+    Copycat = Clappy;
+    FragTrap ft("FT-2");
+    ft.attack("an enemy");
+    ft.attack("");
+    ft.setenergyp(0);
+    ft.attack("another enemy");
+    ft.setenergyp(2);
+    ft.sethitp(0);
+    ft.attack("another enemy");
+    ft.takeDamage(4);
+    ft.beRepaired(3);
+    ft.sethitp(10);
+    ft.setenergyp(4);
+    ft.takeDamage(4);
+    ft.beRepaired(3);
+    ft.highFiveGuys();
     return 0;
 }

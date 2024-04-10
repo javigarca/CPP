@@ -14,6 +14,9 @@
 
 ScavTrap::ScavTrap() : ClapTrap()
 {
+    this->_hit_points = 100;
+    this->_energy_points = 50;
+    this->_attack_damage = 20;
     std::cout << "<<ScavTrap Default constructor called>> Welcome "<< this->getname() << "." << std::endl;
 }
 
@@ -32,11 +35,9 @@ ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other)
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 {
-if (this != &other)
-    {
+    if (this != &other)
         ClapTrap::operator=(other);
-    }
-     std::cout << "<<ScavTrap Copy assigment operator called>> " << this->getname() << " re-assignated succesfully." << std::endl;
+    std::cout << "<<ScavTrap Copy assigment operator called>> " << this->getname() << " re-assignated succesfully." << std::endl;
     return *this;
 }
 
