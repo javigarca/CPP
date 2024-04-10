@@ -11,13 +11,10 @@
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main(void)
 {
-    std::cout << std::endl;
-    std::cout << "********************" << std::endl;
-    std::cout << "**** ClapTraps *****" << std::endl;
-    std::cout << "********************" << std::endl;
     ClapTrap Clappy("Clappy");
     ClapTrap Clappycpy(Clappy);
     ClapTrap Empty("");
@@ -43,6 +40,18 @@ int main(void)
     Empty.attack("");
     Empty.setenergyp(0);
     Empty.beRepaired(2);
+    std::cout << "********************" << std::endl;
+    std::cout << "**** ScavTraps *****" << std::endl;
+    std::cout << "********************" << std::endl;
+    ScavTrap st("ST-1");
+    st.attack("an enemy");
+    st.attack("");
+    st.setenergyp(0);
+    st.attack("another enemy");
+    st.setenergyp(2);
+    st.sethitp(0);
+    st.attack("another enemy");
+    st.guardGate();
 
     return 0;
 }
