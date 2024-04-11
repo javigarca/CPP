@@ -48,5 +48,6 @@ int main() {
     delete i;
     delete j;
     delete w;
+    //system("leaks animals");
     return 0;
 }

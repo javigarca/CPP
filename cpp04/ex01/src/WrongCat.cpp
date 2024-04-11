@@ -10,29 +10,33 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#include "WrongCat.hpp"
 
-# include <iostream>
-# include <string>
-
-class Animal 
+WrongCat::WrongCat() : WrongAnimal("WrongCat")
 {
-    public:
-        Animal();
-        Animal(const std::string& type);
-        Animal(const Animal& other);
-        virtual ~Animal();
+    std::cout << "[WrongCat] << Default Constructor >>" << std::endl;
+}
 
-        virtual Animal& operator=(const Animal& other);
+WrongCat::WrongCat(const WrongCat& other) : WrongAnimal(other)
+{
+    std::cout << "[WrongCat] << Copy Constructor >>" << std::endl;
+}
 
-        void setType(const std::string& type);
-        const std::string getType(void) const;
+WrongCat::~WrongCat()
+{
+    std::cout << "[WrongCat] << Destructor >>" << std::endl;
+}
 
-        virtual void makeSound(void) const;
+WrongCat& WrongCat::operator=(const WrongCat& other)
+{
+    if (this != &other)
+        WrongAnimal::operator=(other);
+    std::cout << "[WrongCat] << Copy assigment operator >>" << std::endl;
+    return *this; 
+}
 
-    protected:
-        std::string _type;
-};
+void WrongCat::makeSound(void) const
+{
+    std::cout << "The WrongCat meows with despair." << std::endl;
+}
 
-#endif

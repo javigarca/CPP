@@ -10,29 +10,36 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#include "Brain.hpp"
+#include "Dog.hpp"
 
-# include <iostream>
-# include <string>
-
-class Animal 
+Dog::Dog() : Animal("Dog"), brain(new Brain())
 {
-    public:
-        Animal();
-        Animal(const std::string& type);
-        Animal(const Animal& other);
-        virtual ~Animal();
+    std::cout << "[Dog] << Default Constructor >>" << std::endl;
+}
 
-        virtual Animal& operator=(const Animal& other);
+Dog::Dog(const Dog& other) : Animal(other), brain(new Brain(*other.brain))
+{
+    std::cout << "[Dog] << Copy Constructor >>" << std::endl;
+}
 
-        void setType(const std::string& type);
-        const std::string getType(void) const;
+Dog::~Dog()
+{
+    delete brain;
+    std::cout << "[Dog] << Destructor >>" << std::endl;
+}
 
-        virtual void makeSound(void) const;
+Dog& Dog::operator=(const Dog& other)
+{
+    if (this != &other)
+        Animal::operator=(other);
+    delete brain;
+    brain = new Brain(*other.brain);
+    std::cout << "[Dog] << Copy assignment operator >>" << std::endl;
+    return *this;
+}
 
-    protected:
-        std::string _type;
-};
-
-#endif
+void Dog::makeSound(void) const
+{
+    std::cout << "The dog barks to reclaim your attention" << std::endl;
+}

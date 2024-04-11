@@ -10,29 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 
 # include <iostream>
 # include <string>
+# include "WrongAnimal.hpp"
 
-class Animal 
+class WrongCat : public WrongAnimal 
 {
     public:
-        Animal();
-        Animal(const std::string& type);
-        Animal(const Animal& other);
-        virtual ~Animal();
+        WrongCat();
+        WrongCat(const WrongCat& other);
+        ~WrongCat();
 
-        virtual Animal& operator=(const Animal& other);
+        WrongCat& operator=(const WrongCat& other);
 
-        void setType(const std::string& type);
-        const std::string getType(void) const;
-
-        virtual void makeSound(void) const;
-
-    protected:
-        std::string _type;
+        void makeSound(void) const;
 };
 
 #endif

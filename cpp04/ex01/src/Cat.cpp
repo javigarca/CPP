@@ -10,29 +10,36 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#include "Brain.hpp"
+#include "Cat.hpp"
 
-# include <iostream>
-# include <string>
-
-class Animal 
+Cat::Cat() : Animal("Cat"), brain(new Brain())
 {
-    public:
-        Animal();
-        Animal(const std::string& type);
-        Animal(const Animal& other);
-        virtual ~Animal();
+    std::cout << "[Cat] << Default Constructor >>" << std::endl;
+}
 
-        virtual Animal& operator=(const Animal& other);
+Cat::Cat(const Cat& other) : Animal(other), brain(new Brain(*other.brain))
+{
+    std::cout << "[Cat] << Copy Constructor >>" << std::endl;
+}
 
-        void setType(const std::string& type);
-        const std::string getType(void) const;
+Cat::~Cat()
+{
+    delete brain;
+    std::cout << "[Cat] << Destructor >>" << std::endl;
+}
 
-        virtual void makeSound(void) const;
+Cat& Cat::operator=(const Cat& other)
+{
+    if (this != &other)
+        Animal::operator=(other);
+    delete brain;
+    brain = new Brain(*other.brain);
+    std::cout << "[Cat] << Copy assigment operator >>" << std::endl;
+    return *this; 
+}
 
-    protected:
-        std::string _type;
-};
-
-#endif
+void Cat::makeSound(void) const
+{
+    std::cout << "The cat meows into oblivion." << std::endl;
+}
