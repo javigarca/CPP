@@ -49,8 +49,8 @@ class Bureaucrat
         };
 
     private:
-        const std::string     _name;
-        unsigned int          _grade;
+        const std::string   _name;
+        unsigned int        _grade;
 };
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj);

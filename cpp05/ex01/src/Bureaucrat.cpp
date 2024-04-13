@@ -41,8 +41,11 @@ Bureaucrat::~Bureaucrat()
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 {
     std::cout << "[Bureaucrat]>> Copy Assignment Operator" << std::endl;
-    if (this != &other)
+     if (this != &other)
+    {
+        this->_name = other._name;
         this->_grade = other._grade;
+    }
     return *this;
 }
 

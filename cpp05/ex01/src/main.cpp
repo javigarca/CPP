@@ -47,7 +47,6 @@ int main(void)
     {
         B.incrementGrade();
         C.incrementGrade();
-        std::cout << C;
     }
     catch(const std::exception& e)
     {
@@ -59,8 +58,7 @@ int main(void)
     try
     {
         B.decrementGrade();
-        D.decrementGrade();
-        std::cout << D;
+        D.incrementGrade();
     }
     catch(const std::exception& e)
     {
@@ -69,11 +67,7 @@ int main(void)
     std::cout << "Sorry John, demoted back to 23:" << std::endl;
     std::cout << B;
     std::cout << "Let's copy the newbie guy:" << std::endl;
-    Bureaucrat Z(A);
+    Bureaucrat Z(B);
     std::cout << Z;
-    std::cout << "Let's assign Johnatan, level 150, to John, level 23:" << std::endl;
-    B = D;
-    std::cout << "Should assign level 150 to John, but the name is const!" << std::endl;
-    std::cout << B;
     std::cout << "That's all folks!" << std::endl;
 }
