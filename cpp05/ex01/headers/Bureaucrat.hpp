@@ -19,6 +19,9 @@
 # include <exception>
 # include <iostream>
 # include <string>
+# include "Exceptions.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -35,18 +38,7 @@ class Bureaucrat
         void incrementGrade();
         void decrementGrade();
 
-        class GradeTooHighException : public std::exception
-        {
-            public:
-                virtual const char* what() const throw(); 
-
-        };
-        class GradeTooLowException : public std::exception
-        {
-            public:
-                virtual const char* what() const throw(); 
-
-        };
+        void signForm(Form& formtosign);
 
     private:
         const std::string   _name;

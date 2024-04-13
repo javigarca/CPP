@@ -19,15 +19,34 @@
 # include <exception>
 # include <iostream>
 # include <string>
+# include "Exceptions.hpp"
+
+class Bureaucrat;
 
 class Form
 {
     public:
         Form();
-        Form();
+        Form(const std::string& name, const unsigned int gradetosign, const unsigned int gradetoexec);
+        Form(const Form& other);
+        ~Form();
 
+        Form& operator=(const Form& other);
+
+        const std::string getName() const;
+        unsigned int getGradeSign() const;
+        unsigned int getGradeExec() const;
+        bool getIsSigned() const;
+
+        void beSigned(const Bureaucrat& user);
+        
     private:
-        const std::string _name;
+        const std::string   _name;
+        bool                _signed;
+        const unsigned int  _grade_sign;
+        const unsigned int  _grade_exec;               
 };
+
+std::ostream& operator<<(std::ostream& os, const Form& obj);
 
 #endif

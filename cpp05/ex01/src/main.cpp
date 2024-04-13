@@ -11,63 +11,31 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main(void)
 {
-    Bureaucrat A;
+    Bureaucrat A("James", 1);
     Bureaucrat B("John", 23);
-    std::cout << "Two new sla...bureaucrats:" << std::endl;
+    std::cout << "James and John are here:" << std::endl;
     std::cout << A;
     std::cout << B;
-    Bureaucrat C("James", 1);
-    Bureaucrat D("Johnathan", 150);
-    std::cout << "And two more, top and bottom:" << std::endl;
-    std::cout << C;
-    std::cout << D;
-    std::cout << "Let's try one above the 1 level:" << std::endl;
-    try
-    {
-       Bureaucrat E("Jimmy", 0);
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
-    std::cout << "Now one under level 150:" << std::endl;
-    try
-    {
-        Bureaucrat F("June", 180);
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
-    std::cout << "Some increment, good and not possible:" << std::endl;
-    try
-    {
-        B.incrementGrade();
-        C.incrementGrade();
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
-    std::cout << "John should be level 22:" << std::endl;
-    std::cout << B;
-    std::cout << "And now some decrement, good and not possible also:" << std::endl;
-    try
-    {
-        B.decrementGrade();
-        D.incrementGrade();
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
-    std::cout << "Sorry John, demoted back to 23:" << std::endl;
-    std::cout << B;
-    std::cout << "Let's copy the newbie guy:" << std::endl;
-    Bureaucrat Z(B);
-    std::cout << Z;
+    std::cout << "New Form produced:" << std::endl;
+    Form st("SuperTop", 15, 20);
+    std::cout << st;
+    std::cout << "First John tries to sign:" << std::endl;
+    B.signForm(st);
+    std::cout << "Now James would do it" << std::endl;
+    A.signForm(st);
+    std::cout << "Now let's play with constructors:" << std::endl;
+    std::cout << "DEF" << std::endl;
+    Form ls;
+    std::cout << ls;
+    std::cout << "COPY from DEF" << std::endl;
+    Form copy(ls);
+    std::cout << copy;
+    std::cout << "Now assignment to COPY from st, this one that is signed" << std::endl;
+    copy = st;
+    std::cout << copy;
     std::cout << "That's all folks!" << std::endl;
 }
