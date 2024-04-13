@@ -23,21 +23,24 @@ OBJECTS = $(patsubst $(SRCDIR)/%.cpp, $(OBJDIR)/%.o, $(SOURCES))
 
 all: $(TARGET)
 
-# Buildind executable
 $(TARGET): $(OBJECTS)
-	$(CXX) $(CXXFLAGS) -o $@ $^
+	@$(CXX) $(CXXFLAGS) -o $@ $(OBJECTS)
+	
 
-# Building object files
 $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
 	@mkdir -p $(OBJDIR)
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+	@$(CXX) $(CXXFLAGS) -MMD -MP -c $< -o $@
+
+-include $(OBJECTS:.o=.d)
 
 clean:
-	rm -rf $(OBJDIR)
+	@rm -rf $(OBJDIR) $(OBJDIR)/*.d
+	@echo "Objects removed" 
 
-fclean: clean 
-	rm  $(TARGET)
+fclean: clean
+	@rm -f $(TARGET)
+	@echo "All clean"
 
 re: fclean all
 
-.PHONY: all clean fclean re brain
+.PHONY: all clean fclean re

@@ -6,7 +6,7 @@
 /*   By: javi <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 12:03:59 by javi              #+#    #+#             */
-/*   Updated: 2024/03/28 12:04:01 by javi             ###   ########.fr       */
+/*   Updated: 2024/04/13 23:30:47 by javi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,7 @@ void PhoneBook::print_contacts(void)
     else
     {
         system("clear");
-        std::cout << "\033[31mWrong number. It's not rocket science...\033[0m";
+        std::cout << "\033[31mWrong number. It's not rocket science...\033[0m" << std::endl;
     }
 }
 

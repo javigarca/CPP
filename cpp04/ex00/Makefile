@@ -10,10 +10,10 @@
 #                                                                              #
 # **************************************************************************** #
 
-TARGET = animals
+TARGET = $(BINDIR)/animals
 
 CXX = c++
-CXXFLAGS = -std=c++98 -Wall -Wextra -Werror -pedantic -Wshadow
+CXXFLAGS = -std=c++98 -Wall -Wextra -Werror -pedantic
 
 OBJDIR = obj
 SRCDIR = src
@@ -23,27 +23,28 @@ BINDIR = bin
 HEADERS = -I./$(HDRDIR)
 SOURCES = $(wildcard $(SRCDIR)/*.cpp)
 OBJECTS = $(patsubst $(SRCDIR)/%.cpp, $(OBJDIR)/%.o, $(SOURCES))
+DEPS = $(OBJECTS:.o=.d)
 
 all: $(TARGET)
 
-# Buildind executable
+# Building the executable
 $(TARGET): $(OBJECTS)
 	@mkdir -p $(BINDIR)
-	$(CXX) $(CXXFLAGS) -o $(BINDIR)/$@ $^
+	$(CXX) $(CXXFLAGS) -o $@ $^
 
 # Building object files
 $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
 	@mkdir -p $(OBJDIR)
-	$(CXX) $(CXXFLAGS) $(HEADERS) -c $< -o $@
-	$(CXX) $(CXXFLAGS) $(HEADERS) -MM $< -MF $(@:.o=.d) -MT $@
+	$(CXX) $(CXXFLAGS) $(HEADERS) -MMD -MP -c $< -o $@
 
 # Include the .d files
--include $(OBJECTS:.o=.d)
+-include $(DEPS)
 
 clean:
-	rm -rf $(OBJDIR)
+	rm -rf $(OBJDIR) $(DEPS)
 
 fclean: clean
+	rm -f $(TARGET)
 	rm -rf $(BINDIR)
 
 re: fclean all

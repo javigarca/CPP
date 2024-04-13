@@ -36,8 +36,9 @@ clean:
 	rm -rf $(OBJDIR)
 
 fclean: clean 
-	rm  $(TARGET)
+	rm -f $(TARGET)
+	rm -f *.replace
 
 re: fclean all
 
-.PHONY: all clean fclean re sed
+.PHONY: all clean fclean re 

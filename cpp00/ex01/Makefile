@@ -6,7 +6,7 @@
 #    By: javi <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/18 19:13:49 by javi              #+#    #+#              #
-#    Updated: 2024/03/18 19:16:32 by javi             ###   ########.fr        #
+#    Updated: 2024/04/13 23:40:09 by javi             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,21 +23,24 @@ OBJECTS = $(patsubst $(SRCDIR)/%.cpp, $(OBJDIR)/%.o, $(SOURCES))
 
 all: $(TARGET)
 
-# Buildind executable
-$(TARGET): $(OBJECTS)
+# Building executable
+$(TARGET):	$(OBJECTS)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
 # Building object files
-$(OBJDIR)/%.o: $(SRCDIR)/%.cpp
+$(OBJDIR)/%.o:	$(SRCDIR)/%.cpp
 	@mkdir -p $(OBJDIR)
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -MMD -MP -c $< -o $@
+
+-include $(OBJDIR)/*.d
 
 clean:
-	rm -rf $(OBJDIR)
+	rm -rf $(OBJDIR) $(OBJDIR)/*.d
 
-fclean: clean 
-	rm  $(TARGET)
+fclean: clean
+	rm -f $(TARGET)
 
 re: fclean all
 
-.PHONY: all clean fclean re phonebook
+.PHONY: all clean fclean re
+

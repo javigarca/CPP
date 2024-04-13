@@ -36,8 +36,8 @@ clean:
 	rm -rf $(OBJDIR)
 
 fclean: clean 
-	rm  $(TARGET)
+	rm  -f $(TARGET)
 
 re: fclean all
 
-.PHONY: all clean fclean re harlFilter
+.PHONY: all clean fclean re 
