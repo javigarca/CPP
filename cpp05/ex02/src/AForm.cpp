@@ -79,10 +79,19 @@ bool AForm::getIsSigned() const
 
 void AForm::beSigned(const Bureaucrat& user)
 {
+    if (this->getIsSigned())
+        throw SignedFormException();
     if (user.getGrade() > this->getGradeSign())
-    {
         throw GradeTooLowException();
-    }
     this->_signed = true;
+    std::cout << "Signature complete." << std::endl;
 }
 
+void AForm::execute(const Bureaucrat& executor) const
+{
+    if (!this->getIsSigned())
+        throw NotSignedFormException();
+    if (executor.getGrade() > this->getGradeExec())
+        throw GradeTooLowException();
+    std::cout << " Proceeding..." << std::endl;
+}

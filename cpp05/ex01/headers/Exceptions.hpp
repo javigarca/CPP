@@ -33,4 +33,14 @@ class GradeTooLowException : public std::exception
         }
 };
 
+class SignedFormException : public std::exception
+{
+    public:
+        virtual const char* what() const throw()
+        {
+            return (" [*] Exception [*] >> Form already signed");
+        }
+};
+
+
 #endif

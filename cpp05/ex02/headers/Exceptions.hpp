@@ -20,7 +20,7 @@ class GradeTooHighException : public std::exception
     public:
        virtual const char* what() const throw()
        {
-        return (" [*] Exception [*] >> Grade exceedes the top level");
+        return (" [*] Exception [*] >> Grade exceedes the top level.");
        } 
 };
 
@@ -29,7 +29,25 @@ class GradeTooLowException : public std::exception
     public:
         virtual const char* what() const throw()
         {
-            return (" [*] Exception [*] >> Grade doesn't reach the bare minimun");
+            return (" [*] Exception [*] >> Grade doesn't reach the bare minimun.");
+        }
+};
+
+class SignedFormException : public std::exception
+{
+    public:
+        virtual const char* what() const throw()
+        {
+            return (" [*] Exception [*] >> Form already signed.");
+        }
+};
+
+class NotSignedFormException : public std::exception
+{
+    public:
+        virtual const char* what() const throw()
+        {
+            return (" [*] Exception [*] >> Unable to execute. Form not signed. ");
         }
 };
 

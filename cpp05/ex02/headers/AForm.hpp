@@ -29,7 +29,7 @@ class AForm
         AForm();
         AForm(const std::string& name, const unsigned int gradetosign, const unsigned int gradetoexec);
         AForm(const AForm& other);
-        ~AForm();
+        virtual ~AForm();
 
         AForm& operator=(const AForm& other);
 
@@ -39,6 +39,7 @@ class AForm
         bool getIsSigned() const;
 
         void beSigned(const Bureaucrat& user);
+        virtual void execute(const Bureaucrat& executor) const = 0;
         
     private:
         const std::string   _name;

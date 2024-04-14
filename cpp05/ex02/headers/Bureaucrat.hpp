@@ -20,8 +20,9 @@
 # include <iostream>
 # include <string>
 # include "Exceptions.hpp"
+# include "AForm.hpp"
 
-class AForm;
+//class AForm;
 
 class Bureaucrat
 {
@@ -32,13 +33,14 @@ class Bureaucrat
         ~Bureaucrat();
 
         Bureaucrat& operator=(const Bureaucrat& other);
-
+        
         std::string getName(void) const;
         unsigned int getGrade(void) const;
         void incrementGrade();
         void decrementGrade();
 
         void signForm(AForm& formtosign);
+        void executeForm(const AForm& form);
 
     private:
         const std::string   _name;

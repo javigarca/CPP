@@ -27,6 +27,8 @@ int main(void)
     B.signForm(st);
     std::cout << "Now James would do it" << std::endl;
     A.signForm(st);
+    std::cout << "Let James try again..." << std::endl;
+    A.signForm(st);
     std::cout << "Now let's play with constructors:" << std::endl;
     std::cout << "DEF" << std::endl;
     Form ls;

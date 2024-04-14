@@ -79,10 +79,11 @@ bool Form::getIsSigned() const
 
 void Form::beSigned(const Bureaucrat& user)
 {
+    if (this->getIsSigned())
+        throw SignedFormException();
     if (user.getGrade() > this->getGradeSign())
-    {
         throw GradeTooLowException();
-    }
     this->_signed = true;
+    std::cout << "Signature complete." << std::endl;
 }
 

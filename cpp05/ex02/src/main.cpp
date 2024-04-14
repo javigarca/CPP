@@ -10,8 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Exceptions.hpp"
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main(void)
 {
@@ -21,12 +23,16 @@ int main(void)
     std::cout << A;
     std::cout << B;
     std::cout << "New Form produced:" << std::endl;
-    AForm st("SuperTop", 15, 20);
-    std::cout << st;
-    std::cout << "First John tries to sign:" << std::endl;
-    B.signForm(st);
-    std::cout << "Now James would do it" << std::endl;
-    A.signForm(st);
+    PresidentialPardonForm Presi("Freddy");
+    std::cout << Presi;
+    std::cout << "Now James tries to execute it" << std::endl;
+    A.executeForm(Presi);
+    std::cout << "John tries to sign and execute" << std::endl;
+    B.signForm(Presi);
+    B.executeForm(Presi);
+    std::cout << "Now James can execute" << std::endl;
+    A.executeForm(Presi);
+    /*
     std::cout << "Now let's play with constructors:" << std::endl;
     std::cout << "DEF" << std::endl;
     AForm ls;
@@ -37,5 +43,6 @@ int main(void)
     std::cout << "Now assignment to COPY from st, this one that is signed" << std::endl;
     copy = st;
     std::cout << copy;
+    */
     std::cout << "That's all folks!" << std::endl;
 }
