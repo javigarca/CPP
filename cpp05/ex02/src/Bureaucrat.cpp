@@ -76,6 +76,7 @@ void Bureaucrat::decrementGrade()
         throw GradeTooLowException();
     this->_grade += 1;
 }
+
 void Bureaucrat::signForm(AForm& formtosign)
 {
     try

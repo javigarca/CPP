@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "AForm.hpp"
-# include "Bureaucrat.hpp"
-
+#include "AForm.hpp"
+#include "Bureaucrat.hpp"
+ 
 AForm::AForm() : _name("Default Form"), _signed(false), _grade_sign(MIN_GRADE), _grade_exec(MIN_GRADE)
 {
     std::cout << "[Form]>> Default Constructor" << std::endl;

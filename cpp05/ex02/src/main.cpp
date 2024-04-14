@@ -14,6 +14,8 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int main(void)
 {
@@ -32,6 +34,48 @@ int main(void)
     B.executeForm(Presi);
     std::cout << "Now James can execute" << std::endl;
     A.executeForm(Presi);
+    std::cout << "************************** ROBOTOMIZTIONS!!" << std::endl;
+    Bureaucrat C("Rick", 1);
+    Bureaucrat D("Jason", 73);
+    std::cout << "Rick and Jason for this one:" << std::endl;
+    std::cout << C;
+    std::cout << D;
+    std::cout << "New Form produced, poor guy Spud:" << std::endl;
+    RobotomyRequestForm robot("Spud");
+    std::cout << robot;
+    std::cout << "Now Rick tries to execute it" << std::endl;
+    C.executeForm(robot);
+    std::cout << "Jason tries to sign and execute" << std::endl;
+    D.signForm(robot);
+    D.executeForm(robot);
+    std::cout << "Now Rick signs" << std::endl;
+    C.signForm(robot);
+    std::cout << "Jason tries to sign and execute, again!" << std::endl;
+    D.signForm(robot);
+    D.executeForm(robot);
+    std::cout << "Rick would execute it 5 times" << std::endl;
+    for (int i = 0; i < 5; i++)
+        C.executeForm(robot);
+    std::cout << "************************** TREEEEEES!!" << std::endl;
+    Bureaucrat Z;
+    std::cout << C.getName() << "and " << Z.getName() << " for gardening:" << std::endl;
+    std::cout << C;
+    std::cout << Z;
+    std::cout << "New Form produced:" << std::endl;
+    ShrubberyCreationForm tree("nice");
+    std::cout << tree;
+    std::cout << "Now Rick tries to execute it" << std::endl;
+    C.executeForm(tree);
+    std::cout << Z.getName() << " tries to sign and execute" << std::endl;
+    Z.signForm(tree);
+    Z.executeForm(tree);
+    std::cout << "Now Rick signs" << std::endl;
+    C.signForm(tree);
+    std::cout <<  Z.getName() << " tries to sign and execute, again!" << std::endl;
+    Z.signForm(tree);
+    Z.executeForm(tree);
+    std::cout << C.getName() << " would execute it" << std::endl;
+    C.executeForm(tree);
     /*
     std::cout << "Now let's play with constructors:" << std::endl;
     std::cout << "DEF" << std::endl;
@@ -44,5 +88,6 @@ int main(void)
     copy = st;
     std::cout << copy;
     */
+    std::cout << "**************************************" << std::endl;
     std::cout << "That's all folks!" << std::endl;
 }

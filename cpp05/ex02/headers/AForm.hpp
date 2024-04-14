@@ -20,6 +20,7 @@
 # include <iostream>
 # include <string>
 # include "Exceptions.hpp"
+//# include "Bureaucrat.hpp"
 
 class Bureaucrat;
 

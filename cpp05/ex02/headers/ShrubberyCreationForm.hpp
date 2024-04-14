@@ -21,10 +21,10 @@ class ShrubberyCreationForm : public AForm
     public:
         ShrubberyCreationForm();
         ShrubberyCreationForm(const std::string& target);
-        ShrubberyCreationForm(const ShrubberyCreationForm& pardon);
+        ShrubberyCreationForm(const ShrubberyCreationForm& other);
         ~ShrubberyCreationForm();
 
-        ShrubberyCreationForm operator=(const ShrubberyCreationForm& pardon);
+        ShrubberyCreationForm& operator=(const ShrubberyCreationForm& other);
 
         std::string getTarget() const;
         

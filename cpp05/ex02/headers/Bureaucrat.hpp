@@ -20,9 +20,9 @@
 # include <iostream>
 # include <string>
 # include "Exceptions.hpp"
-# include "AForm.hpp"
+//# include "AForm.hpp"
 
-//class AForm;
+class AForm;
 
 class Bureaucrat
 {
