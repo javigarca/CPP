@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = 28b
+NAME = intern
 
 TARGET = $(BINDIR)/$(NAME)
 
@@ -52,4 +52,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re 28b
+.PHONY: all clean fclean re intern
