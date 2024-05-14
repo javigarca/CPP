@@ -18,11 +18,7 @@ Zombie* zombieHorde(int N, std::string name)
 
     for (int i = 0; i < N; i++)
     {
-        std::string newname = name;
-        newname += "[";
-        newname += std::to_string(i + 1);
-        newname += "]";
-        horde[i].setName(newname);
+        horde[i].setName(name);
     }
     return (horde);
 }

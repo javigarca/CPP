@@ -53,7 +53,7 @@ int main(int argc, char* argv[])
         }
         std::string toreplace = argv[3];
         std::string filename = argv[1];
-        std::ifstream ifs(filename);
+        std::ifstream ifs(filename.c_str());
 
         if (!ifs.is_open())
         {
@@ -61,7 +61,7 @@ int main(int argc, char* argv[])
             return 1;
         }
         filename += ".replace";
-        std::ofstream ofs(filename);
+        std::ofstream ofs(filename.c_str());
         if (!ofs.is_open())
         {
             std::cerr << "Error creating replace file: " << filename << std::endl;
