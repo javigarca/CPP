@@ -44,7 +44,6 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
 
 clean:
 	rm -rf $(OBJDIR) $(DEPS)
-	rm -rf *_shrubbery
 
 fclean: clean
 	rm -f $(TARGET)

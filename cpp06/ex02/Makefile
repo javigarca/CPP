@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = convert
+NAME = bases
 
 TARGET = $(BINDIR)/$(NAME)
 
@@ -51,4 +51,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re convert
+.PHONY: all clean fclean re bases
