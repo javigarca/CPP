@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   whatever.hpp                                       :+:      :+:    :+:   */
+/*   iter.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javi <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,27 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WHATEVER_HPP
-# define WHATEVER_HPP
+#ifndef ITER_HPP
+# define ITER_HPP
 
-template <typename T>
-void swap(T & a, T & b)
-{
-    T tmp = a;
-    a = b;
-    b = tmp;
-}
+#include <iostream>
 
-template <typename T>
-T const & min(T const & a, T const & b)
+template <typename T, typename F>
+void iter(T* array, int len, F (func))
 {
-    return (a < b) ? a : b;
-}
-
-template <typename T>
-T const & max(T const & a, T const & b)
-{
-    return (a > b) ? a : b;
+    if (len < 1)
+    {
+        std::cout << "Empty array" << std::endl;
+        return;
+    }
+    for (int i = 0; i < len; i++)
+    {
+        func(array[i]);
+    }
+    
 }
 
 #endif

@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = few
+NAME = iter
 
 TARGET = $(BINDIR)/$(NAME)
 
@@ -51,4 +51,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re few
+.PHONY: all clean fclean re iter
