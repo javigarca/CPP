@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "whatever.hpp"
+#include "Whatever.hpp"
 #include <iostream>
 
 class Awesome

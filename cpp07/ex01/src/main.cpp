@@ -6,11 +6,11 @@
 /*   By: javi <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:02:31 by javi              #+#    #+#             */
-/*   Updated: 2024/04/15 12:03:02 by javi             ###   ########.fr       */
+/*   Updated: 2024/07/01 10:44:00 by javi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "inter.hpp"
+#include "Iter.hpp"
 
 class Awesome
 {
@@ -32,7 +32,7 @@ int main()
 {
     int arr[] = {1, 2, 3, 4, 5};
 	std::string array[] = {"uno","dos", "cincuenta"};
-    char arrayChar[6] = {'K', 'I', 'L', 'L', 'M', 'E'};
+    char arrayChar[6] = {'C', '+', '+', '7', '0', '1'};
     Awesome tab2[7];
     int len1 = sizeof(arr) / sizeof(arr[0]);
     int len2 = sizeof(array) / sizeof(array[0]);
