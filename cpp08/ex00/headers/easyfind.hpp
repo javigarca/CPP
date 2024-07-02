@@ -16,9 +16,9 @@
 #include <algorithm>
 
 template <typename T>
-bool easyfind(const T & container, int value)
+bool easyfind(T & container, int value)
 {
-    typename T::const_iterator it = std::find(container.begin(), container.end(), value);
+    typename T::iterator it = std::find(container.begin(), container.end(), value);
     if (it != container.end())
         return true;
     return false;

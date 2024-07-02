@@ -6,11 +6,11 @@
 #    By: javi <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/18 19:13:49 by javi              #+#    #+#              #
-#    Updated: 2024/04/14 17:11:43 by javi             ###   ########.fr        #
+#    Updated: 2024/07/01 17:28:33 by javi             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = iter
+NAME = span 
 
 TARGET = $(BINDIR)/$(NAME)
 
@@ -51,4 +51,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re iter
+.PHONY: all clean fclean re span
