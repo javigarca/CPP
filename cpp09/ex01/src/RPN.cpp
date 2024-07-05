@@ -32,6 +32,11 @@ RPN & RPN::operator=(const RPN &other)
 
 bool RPN::validateExpresion(const std::string &input) const
 {
+    if (input.empty())
+    {
+        std::cout << "Empty expression" << std::endl;
+        return false;
+    }
     size_t i = 0;
     for (std::string::const_iterator it = input.begin(); it != input.end(); ++it)
     {
@@ -44,7 +49,7 @@ bool RPN::validateExpresion(const std::string &input) const
         if (std::isdigit(c))
             i++;
     }
-    if (i > 10)
+    if (i > 9)
     {
         std::cout << "Too many numbers." << std::endl;
         return false;
