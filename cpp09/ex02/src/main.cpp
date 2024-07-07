@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RPN.hpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javi <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/03 17:34:54 by javi              #+#    #+#             */
-/*   Updated: 2024/07/05 17:52:19 by javi             ###   ########.fr       */
+/*   Created: 2024/07/05 17:51:41 by javi              #+#    #+#             */
+/*   Updated: 2024/07/05 17:51:44 by javi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RPN_HPP
-# define RPN_HPP
+#include "PmergeMe.hpp"
 
-#include <string>
-#include <stack>
-#include <iostream>
-#include <cctype>
-
-class RPN
+int main(int argc, char* argv[])
 {
-    public:
-        RPN();
-        RPN(const RPN &other);
-        ~RPN();
+    if (argc != 2) {
+        std::cout << "Usage: " << argv[0] << " <inverted Polish mathematical expression>" << std::endl;
+        return 1;
+    }
 
-        RPN & operator=(const RPN &other);
-
-        bool validateExpression(const std::string &input) const;
-        void resolve(const std::string &input);
-};
-
-#endif
+    RPN rpn;
+    std::string exprs = std::string(argv[1]);
+    if (rpn.validateExpression(exprs))
+        rpn.resolve(exprs);
+    else
+        std::cout << "Error." << std::endl;
+    return 0;
+}

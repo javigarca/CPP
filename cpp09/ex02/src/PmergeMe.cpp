@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RPN.cpp                                            :+:      :+:    :+:   */
+/*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javi <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 17:35:04 by javi              #+#    #+#             */
-/*   Updated: 2024/07/05 18:32:33 by javi             ###   ########.fr       */
+/*   Updated: 2024/07/07 16:55:35 by javi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RPN.hpp"
+#include "PmergeMe.hpp"
 
 RPN::RPN()
 {}
@@ -42,7 +42,7 @@ bool RPN::validateExpression(const std::string &input) const
     for (std::string::const_iterator it = input.begin(); it != input.end(); ++it)
     {
         char c = *it; 
-        if (!std::isdigit(c) && c != '+' && c != '-' && c != '/' && c != '*' && c !=' ' && c!='\t')
+        if (!std::isdigit(c) && c != '+' && c != '-' && c != '/' && c != '*' && c !=' ')
         {
             std::cout << "Invalid character in expression." << std::endl;
             return false;
