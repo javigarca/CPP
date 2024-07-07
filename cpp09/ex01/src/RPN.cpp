@@ -26,22 +26,23 @@ RPN::~RPN()
 RPN & RPN::operator=(const RPN &other)
 {
     if (this != &other)
-        this->_stack = other._stack;
+        *this = other;
     return *this;
 }
 
-bool RPN::validateExpresion(const std::string &input) const
+bool RPN::validateExpression(const std::string &input) const
 {
     if (input.empty())
     {
         std::cout << "Empty expression" << std::endl;
         return false;
     }
+
     size_t i = 0;
     for (std::string::const_iterator it = input.begin(); it != input.end(); ++it)
     {
         char c = *it; 
-        if (!std::isdigit(c) && c != '+' && c != '-' && c != '/' && c != '*')
+        if (!std::isdigit(c) && c != '+' && c != '-' && c != '/' && c != '*' && c !=' ')
         {
             std::cout << "Invalid character in expression." << std::endl;
             return false;
@@ -49,6 +50,7 @@ bool RPN::validateExpresion(const std::string &input) const
         if (std::isdigit(c))
             i++;
     }
+    
     if (i > 9)
     {
         std::cout << "Too many numbers." << std::endl;
@@ -57,12 +59,61 @@ bool RPN::validateExpresion(const std::string &input) const
     return true;
 }
 
-void RPN::showOutput(const std::string &input)
+void RPN::resolve(const std::string &input)
 {
-    if (!input.empty())
-        std::cout << "bien" << std::endl;
-    else
-        std::cout << "vacio" << std::endl;
+    std::stack<double> stack;
+    
+    for (size_t i = 0; i < input.size(); ++i)
+    {
+        char c = input[i];
+        
+        if (std::isdigit(c))
+            stack.push(c - '0');
+        else if (c == ' ')
+            continue;
+        else
+        {
+            if (stack.size() < 2)
+            {
+                std::cout << "Error: incorrect expression." << std::endl;
+                return;
+            }
+
+            double b = stack.top();
+            stack.pop();
+            double a = stack.top();
+            stack.pop();
+
+            switch (c)
+            {
+                case '+': 
+                    stack.push(a + b); 
+                    break;
+                case '-': 
+                    stack.push(a - b);
+                    break;
+                case '*': 
+                    stack.push(a * b);
+                    break;
+                case '/':
+                    if (b == 0)
+                    {
+                        std::cout << "Error: division by zero." << std::endl;
+                        return;
+                    }
+                    stack.push(a / b);
+                    break;
+                default:
+                    std::cout << "Error:" << c << std::endl;
+                    return;
+            }
+        }
+    }
+
+    if (stack.size() != 1)
+    {
+        std::cout << "Error: invalid expression." << std::endl;
+        return;
+    }
+    std::cout << "Result: " << stack.top() << std::endl;
 }
-
-

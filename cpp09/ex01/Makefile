@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = rpn 
+NAME = RPN 
 
 TARGET = $(BINDIR)/$(NAME)
 
@@ -51,4 +51,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re rpn
+.PHONY: all clean fclean re RPN

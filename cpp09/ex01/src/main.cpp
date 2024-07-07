@@ -22,11 +22,7 @@ int main(int argc, char* argv[])
     RPN rpn;
     std::string exprs = std::string(argv[1]);
     if (rpn.validateExpression(exprs))
-    {
-        rpn.loadExpression(exprs);
-        rpn.calculateExpression();
-        rpn.showOutput();
-    }
+        rpn.resolve(exprs);
     else
         std::cout << "Error." << std::endl;
     return 0;

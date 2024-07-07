@@ -28,14 +28,11 @@ class RPN
         RPN & operator=(const RPN &other);
 
         bool validateExpression(const std::string &input) const;
-        void loadExpression(const std::string &input);
-        void calculateExpression();
-        void showOutput() const;
-
-
+        void resolve(const std::string &input);
+        
     private:
-        std::stack<int> _stack;
-        double          _result;
+        std::stack<double> _stack;
+        int             _result;
 };
 
 #endif
