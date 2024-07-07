@@ -12,108 +12,86 @@
 
 #include "PmergeMe.hpp"
 
-RPN::RPN()
+PmergeMe::PmergeMe()
 {}
 
-RPN::RPN(const RPN &other)
+PmergeMe::PmergeMe(const PmergeMe &other)
 {
     *this = other;
 }
 
-RPN::~RPN()
+PmergeMe::~PmergeMe()
 {}
 
-RPN & RPN::operator=(const RPN &other)
+PmergeMe & PmergeMe::operator=(const PmergeMe &other)
 {
     if (this != &other)
-        *this = other;
+        this->_deque = other._deque;
+        this->_vector = other._vector;
     return *this;
 }
 
-bool RPN::validateExpression(const std::string &input) const
+bool PmergeMe::isValidNumber(const std::string& str, int& number)
 {
-    if (input.empty())
-    {
-        std::cout << "Empty expression" << std::endl;
+    std::stringstream ss(str);
+    ss >> number;
+    // Verificar si la conversión falló o si hay caracteres adicionales en la cadena
+    if (ss.fail() || !ss.eof() || number < 0)
         return false;
-    }
-
-    size_t i = 0;
-    for (std::string::const_iterator it = input.begin(); it != input.end(); ++it)
-    {
-        char c = *it; 
-        if (!std::isdigit(c) && c != '+' && c != '-' && c != '/' && c != '*' && c !=' ')
-        {
-            std::cout << "Invalid character in expression." << std::endl;
-            return false;
-        }
-        if (std::isdigit(c))
-            i++;
-    }
-    
-    if (i > 9)
-    {
-        std::cout << "Too many numbers." << std::endl;
-        return false;
-    }
     return true;
 }
 
-void RPN::resolve(const std::string &input)
+bool PmergeMe::extractValidNumbers(const std::string& str, std::vector<int>& validNumbers)
 {
-    std::stack<double> stack;
-    
-    for (size_t i = 0; i < input.size(); ++i)
+    std::stringstream ss(str);
+    std::string token;
+    while (ss >> token)
     {
-        char c = input[i];
-        
-        if (std::isdigit(c))
-            stack.push(c - '0');
-        else if (c == ' ')
-            continue;
+        int number;
+        if (isValidNumber(token, number))
+            validNumbers.push_back(number);
         else
-        {
-            if (stack.size() < 2)
-            {
-                std::cout << "Error: incorrect expression." << std::endl;
-                return;
-            }
-
-            double b = stack.top();
-            stack.pop();
-            double a = stack.top();
-            stack.pop();
-
-            switch (c)
-            {
-                case '+': 
-                    stack.push(a + b); 
-                    break;
-                case '-': 
-                    stack.push(a - b);
-                    break;
-                case '*': 
-                    stack.push(a * b);
-                    break;
-                case '/':
-                    if (b == 0)
-                    {
-                        std::cout << "Error: division by zero." << std::endl;
-                        return;
-                    }
-                    stack.push(a / b);
-                    break;
-                default:
-                    std::cout << "Error:" << c << std::endl;
-                    return;
-            }
-        }
+            return true;
     }
+    return false;
+}
 
-    if (stack.size() != 1)
+bool PmergeMe::parseInput(int argc, char *argv[])
+{
+    std::vector<int> validNumbers;
+    for (int i = 0; i < argc; ++i)
     {
-        std::cout << "Error: invalid expression." << std::endl;
-        return;
+        if (extractValidNumbers(argv[i], validNumbers))
+        return false;
     }
-    std::cout << "Result: " << stack.top() << std::endl;
+        
+    if (validNumbers.size() < 2)
+    {
+        std::cout << "Error" << std::endl;
+        return false;
+    }
+    
+    std::cout << "GOOD" << std::endl;
+    return true;
+}
+
+void PmergeMe::display(const std::string &title)
+{
+    std::cout << title << ": ";
+
+    for (std::vector<int>::iterator it = _vector.begin(); it != _vector.end(); ++it)
+        std::cout <<  *it << " ";
+    std::cout << std::endl;
+}
+
+void PmergeMe::sortVector()
+{
+    std::cout << "VECTOR SORT." << std::endl;
+    return;
+}
+
+void PmergeMe::sortDeque()
+{
+    std::cout << "DEQEUE SORT." << std::endl;
+    return;
 }

@@ -14,25 +14,31 @@
 # define PMERGEME_HPP
 
 #include <string>
-#include <stack>
+#include <deque>
 #include <iostream>
-#include <cctype>
+#include <sstream>
+#include <vector>
+#include <stdexcept>
 
-class RPN
+class PmergeMe
 {
     public:
-        RPN();
-        RPN(const RPN &other);
-        ~RPN();
+        PmergeMe();
+        PmergeMe(const PmergeMe &other);
+        ~PmergeMe();
 
-        RPN & operator=(const RPN &other);
+        PmergeMe & operator=(const PmergeMe &other);
 
-        bool validateExpression(const std::string &input) const;
-        void resolve(const std::string &input);
+        bool parseInput(int argc, char* argv[]);
+        bool extractValidNumbers(const std::string& str, std::vector<int>& validNumbers);
+        bool isValidNumber(const std::string& str, int& number);
+        void sortVector();
+        void sortDeque();
+        void display(const std::string &title);
         
     private:
-        std::stack<double> _stack;
-        int             _result;
+        std::vector<int>    _vector;
+        std::deque<int>     _deque;
 };
 
 #endif

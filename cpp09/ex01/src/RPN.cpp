@@ -26,7 +26,7 @@ RPN::~RPN()
 RPN & RPN::operator=(const RPN &other)
 {
     if (this != &other)
-        *this = other;
+        (void)other;
     return *this;
 }
 
@@ -59,7 +59,7 @@ bool RPN::validateExpression(const std::string &input) const
     return true;
 }
 
-void RPN::resolve(const std::string &input)
+void RPN::resolve(const std::string &input) const
 {
     std::stack<double> stack;
     

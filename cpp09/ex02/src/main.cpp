@@ -14,16 +14,31 @@
 
 int main(int argc, char* argv[])
 {
-    if (argc != 2) {
-        std::cout << "Usage: " << argv[0] << " <inverted Polish mathematical expression>" << std::endl;
+    if (argc < 3)
+    {
+        std::cout << "Usage: " << argv[0] << " <positive integer sequence, each integer an argument>" << std::endl;
         return 1;
     }
 
-    RPN rpn;
-    std::string exprs = std::string(argv[1]);
-    if (rpn.validateExpression(exprs))
-        rpn.resolve(exprs);
-    else
-        std::cout << "Error." << std::endl;
+    try
+    {
+        PmergeMe object;
+        std::string exprs = std::string(argv[1]);
+        if (object.parseInput(argc, argv))
+        {
+            object.display("Before");
+            object.sortVector();
+            object.sortDeque();
+            object.display("After");
+        }
+    }
+
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    
+   
+    
     return 0;
 }

@@ -28,7 +28,7 @@ class RPN
         RPN & operator=(const RPN &other);
 
         bool validateExpression(const std::string &input) const;
-        void resolve(const std::string &input);
+        void resolve(const std::string &input) const;
 };
 
 #endif
