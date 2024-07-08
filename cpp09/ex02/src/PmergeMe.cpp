@@ -132,9 +132,11 @@ size_t PmergeMe::getDequeSize() const
     return this->_deque.size();
 }
 
-void insertSorted(std::vector<int>& arr, int end, int element) {
+void insertSorted(std::vector<int>& arr, int end, int element)
+{
     int i = end - 1;
-    while (i >= 0 && arr[i] > element) {
+    while (i >= 0 && arr[i] > element)
+    {
         arr[i + 1] = arr[i];
         i--;
     }
@@ -142,7 +144,8 @@ void insertSorted(std::vector<int>& arr, int end, int element) {
 }
 
 // Function to merge two sorted subarrays
-void merge(std::vector<int>& arr, int left, int mid, int right) {
+void merge(std::vector<int>& arr, int left, int mid, int right)
+{
     int n1 = mid - left + 1;
     int n2 = right - mid;
 
@@ -154,24 +157,30 @@ void merge(std::vector<int>& arr, int left, int mid, int right) {
         R[i] = arr[mid + 1 + i];
 
     int i = 0, j = 0, k = left;
-    while (i < n1 && j < n2) {
-        if (L[i] <= R[j]) {
+    while (i < n1 && j < n2)
+    {
+        if (L[i] <= R[j])
+        {
             arr[k] = L[i];
             i++;
-        } else {
+        }
+        else
+        {
             arr[k] = R[j];
             j++;
         }
         k++;
     }
 
-    while (i < n1) {
+    while (i < n1)
+    {
         arr[k] = L[i];
         i++;
         k++;
     }
 
-    while (j < n2) {
+    while (j < n2)
+    {
         arr[k] = R[j];
         j++;
         k++;
@@ -179,31 +188,32 @@ void merge(std::vector<int>& arr, int left, int mid, int right) {
 }
 
 // Ford-Johnson sorting algorithm
-void PmergeMe::fordJohnsonSort(std::vector<int>& arr, int left, int right) {
-    if (left < right) {
+void PmergeMe::fordJohnsonSort(std::vector<int>& arr, int left, int right)
+{
+    if (left < right)
+    {
         int size = right - left + 1;
-
-        if (size <= 2) {
-            if (arr[left] > arr[right]) {
+        if (size <= 2)
+        {
+            if (arr[left] > arr[right])
                 std::swap(arr[left], arr[right]);
-            }
             return;
         }
-
         // Initial pairwise sorting
         int mid = left + (right - left) / 2;
         fordJohnsonSort(arr, left, mid);
         fordJohnsonSort(arr, mid + 1, right);
-
         // Recursive merging
         merge(arr, left, mid, right);
     }
 }
 
 // Function to insert an element into a sorted subarray in a deque
-void insertSorted_d(std::deque<int>& arr, int end, int element) {
+void insertSorted_d(std::deque<int>& arr, int end, int element)
+{
     int i = end - 1;
-    while (i >= 0 && arr[i] > element) {
+    while (i >= 0 && arr[i] > element)
+    {
         arr[i + 1] = arr[i];
         i--;
     }
@@ -211,7 +221,8 @@ void insertSorted_d(std::deque<int>& arr, int end, int element) {
 }
 
 // Function to merge two sorted subarrays in a deque
-void merge_d(std::deque<int>& arr, int left, int mid, int right) {
+void merge_d(std::deque<int>& arr, int left, int mid, int right) 
+{
     int n1 = mid - left + 1;
     int n2 = right - mid;
 
@@ -223,24 +234,30 @@ void merge_d(std::deque<int>& arr, int left, int mid, int right) {
         R[i] = arr[mid + 1 + i];
 
     int i = 0, j = 0, k = left;
-    while (i < n1 && j < n2) {
-        if (L[i] <= R[j]) {
+    while (i < n1 && j < n2)
+    {
+        if (L[i] <= R[j])
+        {
             arr[k] = L[i];
             i++;
-        } else {
+        } 
+        else
+        {
             arr[k] = R[j];
             j++;
         }
         k++;
     }
 
-    while (i < n1) {
+    while (i < n1)
+    {
         arr[k] = L[i];
         i++;
         k++;
     }
 
-    while (j < n2) {
+    while (j < n2)
+    {
         arr[k] = R[j];
         j++;
         k++;
@@ -248,22 +265,21 @@ void merge_d(std::deque<int>& arr, int left, int mid, int right) {
 }
 
 // Ford-Johnson sorting algorithm for deque
-void PmergeMe::fordJohnsonSort_d(std::deque<int>& arr, int left, int right) {
-    if (left < right) {
+void PmergeMe::fordJohnsonSort_d(std::deque<int>& arr, int left, int right)
+{
+    if (left < right)
+    {
         int size = right - left + 1;
-
-        if (size <= 2) {
-            if (arr[left] > arr[right]) {
+        if (size <= 2)
+        {
+            if (arr[left] > arr[right])
                 std::swap(arr[left], arr[right]);
-            }
             return;
         }
-
         // Initial pairwise sorting
         int mid = left + (right - left) / 2;
         fordJohnsonSort_d(arr, left, mid);
         fordJohnsonSort_d(arr, mid + 1, right);
-
         // Recursive merging
         merge_d(arr, left, mid, right);
     }
