@@ -19,6 +19,7 @@
 #include <sstream>
 #include <vector>
 #include <stdexcept>
+#include <set>
 
 class PmergeMe
 {
@@ -36,6 +37,10 @@ class PmergeMe
         void sortDeque();
         void display(const std::string &title) const;
         void display() const;
+        void fordJohnsonSort(std::vector<int>& arr, int left, int right);
+        void fordJohnsonSort_d(std::deque<int>& arr, int left, int right);
+        size_t getVectorSize() const;
+        size_t getDequeSize() const;
         
     private:
         std::vector<int>    _vector;
