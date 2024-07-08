@@ -50,12 +50,6 @@ bool RPN::validateExpression(const std::string &input) const
         if (std::isdigit(c))
             i++;
     }
-    
-    if (i > 9)
-    {
-        std::cout << "Too many numbers." << std::endl;
-        return false;
-    }
     return true;
 }
 

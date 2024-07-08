@@ -26,8 +26,10 @@ PmergeMe::~PmergeMe()
 PmergeMe & PmergeMe::operator=(const PmergeMe &other)
 {
     if (this != &other)
+    {
         this->_deque = other._deque;
         this->_vector = other._vector;
+    }
     return *this;
 }
 
@@ -51,18 +53,18 @@ bool PmergeMe::extractValidNumbers(const std::string& str, std::vector<int>& val
         if (isValidNumber(token, number))
             validNumbers.push_back(number);
         else
-            return true;
+            return false;
     }
-    return false;
+    return true;
 }
 
 bool PmergeMe::parseInput(int argc, char *argv[])
 {
     std::vector<int> validNumbers;
-    for (int i = 0; i < argc; ++i)
+    for (int i = 1; i < argc; ++i)
     {
-        if (extractValidNumbers(argv[i], validNumbers))
-        return false;
+        if (!extractValidNumbers(argv[i], validNumbers))
+            return false;
     }
         
     if (validNumbers.size() < 2)
@@ -72,14 +74,25 @@ bool PmergeMe::parseInput(int argc, char *argv[])
     }
     
     std::cout << "GOOD" << std::endl;
+    _vector = validNumbers;
+    _deque.assign(_vector.begin(), _vector.end());
     return true;
 }
 
-void PmergeMe::display(const std::string &title)
+void PmergeMe::display(const std::string &title) const
 {
     std::cout << title << ": ";
 
-    for (std::vector<int>::iterator it = _vector.begin(); it != _vector.end(); ++it)
+    for (std::vector<int>::const_iterator it = _vector.begin(); it != _vector.end(); ++it)
+        std::cout <<  *it << " ";
+    std::cout << std::endl;
+}
+
+void PmergeMe::display() const
+{
+    std::cout << "Deque: ";
+
+    for (std::deque<int>::const_iterator it = _deque.begin(); it != _deque.end(); ++it)
         std::cout <<  *it << " ";
     std::cout << std::endl;
 }

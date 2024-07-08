@@ -34,7 +34,8 @@ class PmergeMe
         bool isValidNumber(const std::string& str, int& number);
         void sortVector();
         void sortDeque();
-        void display(const std::string &title);
+        void display(const std::string &title) const;
+        void display() const;
         
     private:
         std::vector<int>    _vector;

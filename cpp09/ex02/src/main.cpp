@@ -14,31 +14,24 @@
 
 int main(int argc, char* argv[])
 {
-    if (argc < 3)
+    if (argc < 2)
     {
-        std::cout << "Usage: " << argv[0] << " <positive integer sequence, each integer an argument>" << std::endl;
+        std::cout << "Usage: " << argv[0] << " <positive integer sequence>" << std::endl;
         return 1;
     }
 
-    try
-    {
-        PmergeMe object;
-        std::string exprs = std::string(argv[1]);
-        if (object.parseInput(argc, argv))
-        {
-            object.display("Before");
-            object.sortVector();
-            object.sortDeque();
-            object.display("After");
-        }
-    }
 
-    catch(const std::exception& e)
+    PmergeMe object;
+    if (object.parseInput(argc, argv))
     {
-        std::cerr << e.what() << '\n';
+        object.display();
+        object.display("Before");
+        object.sortVector();
+        object.sortDeque();
+        object.display("After");
     }
-    
-   
-    
+    else
+        std::cout << "Error" << std::endl;
+
     return 0;
 }
