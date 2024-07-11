@@ -15,7 +15,8 @@ NAME = 28b
 TARGET = $(BINDIR)/$(NAME)
 
 CXX = c++
-CXXFLAGS = -std=c++98 -Wall -Wextra -Werror -pedantic
+CXXFLAGS = -std=c++98 -Wall -Wextra -Werror 
+#-pedantic
 
 OBJDIR = obj
 SRCDIR = src

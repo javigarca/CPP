@@ -19,7 +19,7 @@
 void shrubberyTree(const std::string& target)
 {
     std::string filename = target + "_shrubbery";
-    std::ofstream file(filename);
+    std::ofstream file(filename.c_str());
     if (!file.is_open())
     {
         std::cout << "Failed to open the file: " << filename << std::endl;
