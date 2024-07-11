@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "span.hpp"
+#include "../headers/span.hpp"
 #include <iostream>
 #include <ctime>
 

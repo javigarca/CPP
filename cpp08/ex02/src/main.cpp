@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "MutantStack.hpp"
+#include "../headers/MutantStack.hpp"
 #include <iostream>
 #include <list>
 

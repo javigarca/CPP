@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "easyfind.hpp"
+#include "../headers/easyfind.hpp"
 #include <iostream>
 #include <vector>
 #include <list>
