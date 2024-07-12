@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PmergeMe.hpp"
+#include "../headers/PmergeMe.hpp"
 
 PmergeMe::PmergeMe()
 {}
@@ -108,17 +108,13 @@ void PmergeMe::display() const
 
 void PmergeMe::sortVector()
 {
-    std::cout << "Sorting Vector...";
     fordJohnsonSort(this->_vector, 0, getVectorSize() - 1);
-    std::cout << "... end" << std::endl;
     return;
 }
 
 void PmergeMe::sortDeque()
 {
-    std::cout << "Sorting Deque...";
     fordJohnsonSort_d(this->_deque, 0, getDequeSize() - 1);
-    std::cout << "... end" << std::endl;
     return;
 }
 

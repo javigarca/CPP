@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PmergeMe.hpp"
+#include "../headers/PmergeMe.hpp"
 #include <ctime>
 
 int main(int argc, char* argv[])

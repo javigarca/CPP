@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RPN.hpp"
+#include "../headers/RPN.hpp"
 
 int main(int argc, char* argv[])
 {

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "BitcoinExchange.hpp"
+#include "../headers/BitcoinExchange.hpp"
 #include <fstream>
 #include <sstream>
 #include <iostream>
