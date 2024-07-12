@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "span.hpp"
+#include "../headers/span.hpp"
 
 Span::Span() : _max_numbers(0) 
 {}
