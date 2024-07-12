@@ -31,6 +31,7 @@ class MutantStack : public std::stack<T>
         }
         
         typedef typename std::stack<T>::container_type container_type;
+        
         typedef typename container_type::iterator iterator;
         typedef typename container_type::reverse_iterator reverse_iterator;
         typedef typename container_type::const_iterator const_iterator;

@@ -29,7 +29,7 @@ int main()
 	{
         std::cout << "Shortest Span: " << sp.shortestSpan() << std::endl;
         std::cout << "Longest Span: " << sp.longestSpan() << std::endl;
-		std::cout << "Errors with the Span bad Long: " << bad.longestSpan() << std::endl;
+		std::cout << "Errors with the Span bad Longest: " << bad.longestSpan() << std::endl;
 	} 
 	catch (const std::exception &e) 
 	{
@@ -38,7 +38,7 @@ int main()
 
 	try 
 	{
-        std::cout << "Errors with the Span bad Short: " << bad.shortestSpan() << std::endl;
+        std::cout << "Errors with the Span bad Shortest: " << bad.shortestSpan() << std::endl;
     } 
 	catch (const std::exception &e) 
 	{
