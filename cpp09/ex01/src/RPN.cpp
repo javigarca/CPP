@@ -38,20 +38,48 @@ bool RPN::validateExpression(const std::string &input) const
         return false;
     }
 
-    size_t i = 0;
+    size_t operandCount = 0; // Contador para operandos
+    size_t operatorCount = 0; // Contador para operadores
+
     for (std::string::const_iterator it = input.begin(); it != input.end(); ++it)
     {
-        char c = *it; 
-        if (!std::isdigit(c) && c != '+' && c != '-' && c != '/' && c != '*' && c !=' ' && c!='\t')
+        char c = *it;
+        if (!std::isdigit(c) && c != '+' && c != '-' && c != '/' && c != '*' && c != ' ' && c != '\t')
         {
             std::cout << "Invalid character in expression." << std::endl;
             return false;
         }
         if (std::isdigit(c))
-            i++;
+        {
+            // Contar el número de dígitos consecutivos como un solo operando
+            while (it != input.end() && std::isdigit(*it))
+            {
+                ++it;
+            }
+            --it; // Volver un carácter atrás ya que el bucle interno avanza uno de más al encontrar un operator
+            operandCount++;
+        }
+        else if (c == '+' || c == '-' || c == '*' || c == '/')
+        {
+            operatorCount++;
+            if (operatorCount >= operandCount)
+            {
+                std::cout << "Invalid expression: too many operators." << std::endl;
+                return false;
+            }
+        }
     }
+
+    // Al final, debe haber exactamente un operando más que operadores
+    if (operandCount != operatorCount + 1)
+    {
+        std::cout << "Invalid expression: mismatch between operators and operands." << std::endl;
+        return false;
+    }
+
     return true;
 }
+
 
 void RPN::resolve(const std::string &input) const
 {

@@ -11,35 +11,33 @@ bool isLeapYear(int year)
     return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
 }
 
-bool isValidDate(const std::string& date)
-{
+bool isValidDate(const std::string& date) {
     std::istringstream ss(date);
     int year, month, day;
     char delim1, delim2;
     
-    if (ss >> year >> delim1 >> month >> delim2 >> day) 
-    {
-        if (delim1 == '-' && delim2 == '-' && year > 2000 && month > 0 && month <= 12)
-        {
-            if (day > 0) 
-            {
-                switch (month) 
-                {
-                    case 2: // February
-                        if (isLeapYear(year)) 
-                            return day <= 29;
-                        else 
-                            return day <= 28;
-                    case 4: case 6: case 9: case 11: // April, June, September, November
-                        return day <= 30;
-                    default: // January, March, May, July, August, October, December
-                        return day <= 31;
-                }
-            }
-        }
+    if (!(ss >> year >> delim1 >> month >> delim2 >> day)) {
+        return false;
     }
-    return false;
+    
+    if (delim1 != '-' || delim2 != '-' || year <= 2000 || month <= 0 || month > 12) {
+        return false;
+    }
+    
+    if (day <= 0) {
+        return false;
+    }
+
+    switch (month) {
+        case 2: // February
+            return isLeapYear(year) ? day <= 29 : day <= 28;
+        case 4: case 6: case 9: case 11: // April, June, September, November
+            return day <= 30;
+        default: // January, March, May, July, August, October, December
+            return day <= 31;
+    }
 }
+
 bool isValidValue(const std::string& valueStr, float& value)
 {
     std::istringstream ss(valueStr);

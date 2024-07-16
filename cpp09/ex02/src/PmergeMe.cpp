@@ -82,7 +82,6 @@ bool PmergeMe::parseInput(int argc, char *argv[])
     if (validNumbers.size() < 2 || vectorHasDuplicates(validNumbers))
         return false;
     
-    std::cout << "Data validation complete. Starting sorting process." << std::endl;
     _vector = validNumbers;
     _deque.assign(_vector.begin(), _vector.end());
     return true;
