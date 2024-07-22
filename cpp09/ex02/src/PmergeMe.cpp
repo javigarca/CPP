@@ -127,6 +127,7 @@ size_t PmergeMe::getDequeSize() const
     return this->_deque.size();
 }
 
+/*
 void insertSorted(std::vector<int>& arr, int end, int element)
 {
     int i = end - 1;
@@ -137,7 +138,7 @@ void insertSorted(std::vector<int>& arr, int end, int element)
     }
     arr[i + 1] = element;
 }
-
+*/
 // Function to merge two sorted subarrays
 void merge(std::vector<int>& arr, int left, int mid, int right)
 {
@@ -204,6 +205,7 @@ void PmergeMe::fordJohnsonSort(std::vector<int>& arr, int left, int right)
 }
 
 // Function to insert an element into a sorted subarray in a deque
+/*
 void insertSorted_d(std::deque<int>& arr, int end, int element)
 {
     int i = end - 1;
@@ -214,7 +216,7 @@ void insertSorted_d(std::deque<int>& arr, int end, int element)
     }
     arr[i + 1] = element;
 }
-
+*/
 // Function to merge two sorted subarrays in a deque
 void merge_d(std::deque<int>& arr, int left, int mid, int right) 
 {
@@ -279,3 +281,59 @@ void PmergeMe::fordJohnsonSort_d(std::deque<int>& arr, int left, int right)
         merge_d(arr, left, mid, right);
     }
 }
+
+/*
+### `fordJohnsonSort` Function
+
+1. **Base Case (Line 3)**: The function checks if the `left` index is less than the `right` index. If not, it means there's only one element, and no sorting is needed.
+   
+2. **Size Check (Line 5)**: It calculates the size of the current section of the array. If the size is 2 or less:
+   - **Swap (Line 7)**: If there are two elements and they are out of order, swap them.
+
+3. **Divide and Conquer (Lines 12-15)**: If the size is more than 2:
+   - **Calculate Middle (Line 13)**: It finds the middle index to split the array into two halves.
+   - **Recursively Sort Left Half (Line 14)**: It calls itself to sort the left half.
+   - **Recursively Sort Right Half (Line 15)**: It calls itself to sort the right half.
+
+4. **Merge (Line 17)**: After sorting both halves, it merges them together in sorted order using the `merge` function.
+
+### `merge` Function
+
+1. **Calculate Sizes (Lines 21-22)**: It calculates the sizes of the two subarrays to be merged.
+
+2. **Create Temporary Arrays (Lines 24-25)**: It creates two temporary arrays to hold the left and right subarrays.
+
+3. **Copy Data (Lines 27-30)**: It copies the data from the main array to the temporary left and right subarrays.
+
+4. **Merge Process (Lines 32-47)**:
+   - **Indices Initialization (Line 32)**: Initializes indices for left subarray (`i`), right subarray (`j`), and merged array (`k`).
+   - **Compare and Merge (Lines 34-42)**: Compares elements of the left and right subarrays and puts the smaller element into the main array.
+   - **Copy Remaining Elements of Left Subarray (Lines 44-47)**: If there are any elements left in the left subarray, they are copied to the main array.
+   - **Copy Remaining Elements of Right Subarray (Lines 49-52)**: If there are any elements left in the right subarray, they are copied to the main array.
+
+### Simplified Step-by-Step Explanation
+
+1. **Initial Call**: You call `fordJohnsonSort` with the entire array. It checks if the array can be split.
+
+2. **Splitting**: The array is split into two halves recursively until each subarray has at most 2 elements.
+
+3. **Sorting Small Subarrays**: If a subarray has 2 elements, they are swapped if needed to ensure they are in order.
+
+4. **Merging**: The sorted subarrays are merged together to form larger sorted subarrays, eventually resulting in a completely sorted array.
+
+### Visual Example
+
+Imagine you have an array `[5, 2, 9, 1, 5, 6]`:
+
+1. Split into `[5, 2, 9]` and `[1, 5, 6]`.
+2. Further split into `[5, 2]`, `[9]`, `[1, 5]`, and `[6]`.
+3. Sort small parts:
+   - `[5, 2]` becomes `[2, 5]`.
+   - `[1, 5]` is already sorted.
+4. Merge back:
+   - `[2, 5]` and `[9]` merge to `[2, 5, 9]`.
+   - `[1, 5]` and `[6]` merge to `[1, 5, 6]`.
+5. Finally merge `[2, 5, 9]` and `[1, 5, 6]` to get `[1, 2, 5, 5, 6, 9]`.
+
+That's the essence of the `fordJohnsonSort` function and how it sorts the array using the divide-and-conquer approach and merging.
+*/
